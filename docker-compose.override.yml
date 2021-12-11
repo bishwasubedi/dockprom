@@ -1,0 +1,13 @@
+version: '2.1'
+
+services:
+  cadvisor:
+    image: google/cadvisor:latest
+    volumes:
+      - /cgroup:/cgroup:ro #doesn't work on MacOS only for Linux
+  caddy:
+    ports:
+      - "${VPN_IP:-::1}:3000:3000"
+      - "${VPN_IP:-::1}:9090:9090"
+      - "${VPN_IP:-::1}:9093:9093"
+      - "${VPN_IP:-::1}:9091:9091"

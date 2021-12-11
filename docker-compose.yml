@@ -121,10 +121,10 @@ services:
     image: caddy:2.3.0
     container_name: caddy
     ports:
-      - "3000:3000"
-      - "9090:9090"
-      - "9093:9093"
-      - "9091:9091"
+      - "${HOST_IP:-127.0.0.1}:3000:3000"
+      - "${HOST_IP:-127.0.0.1}:9090:9090"
+      - "${HOST_IP:-127.0.0.1}:9093:9093"
+      - "${HOST_IP:-127.0.0.1}:9091:9091"
     volumes:
       - ./caddy:/etc/caddy
     environment:
